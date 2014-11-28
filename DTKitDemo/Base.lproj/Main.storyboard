@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AWo-a4-asU">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="9rX-r3-IfF">
+            <objects>
+                <navigationController id="AWo-a4-asU" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jjp-aJ-Mqt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="NOI-l8-GCt" kind="relationship" relationship="rootViewController" id="4eb-qD-yCn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GtS-Mk-Xbi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="45" y="-264"/>
+        </scene>
+        <!--首页-->
+        <scene sceneID="3GD-EG-ZNx">
+            <objects>
+                <viewController id="NOI-l8-GCt" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ERK-Rr-HY4"/>
+                        <viewControllerLayoutGuide type="bottom" id="RtD-6k-ehU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WMb-ox-HC2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tOG-eb-1w2">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tOG-eb-1w2" firstAttribute="leading" secondItem="WMb-ox-HC2" secondAttribute="leadingMargin" constant="-16" id="3Jq-iM-IO8"/>
+                            <constraint firstItem="tOG-eb-1w2" firstAttribute="top" secondItem="ERK-Rr-HY4" secondAttribute="bottom" id="3Og-WI-huJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tOG-eb-1w2" secondAttribute="trailing" constant="-16" id="EL0-Iz-3Yr"/>
+                            <constraint firstItem="RtD-6k-ehU" firstAttribute="top" secondItem="tOG-eb-1w2" secondAttribute="bottom" id="V9L-1q-huZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="首页" id="fOw-re-dfv"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="tOG-eb-1w2" id="M2L-5F-TYL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ezo-3L-8lJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="533" y="-264"/>
+        </scene>
+    </scenes>
+</document>
