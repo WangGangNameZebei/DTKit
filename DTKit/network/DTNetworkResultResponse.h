@@ -1,0 +1,66 @@
+//
+//  DTNetworkResultResponse.h
+//  PharmaceuticalBar
+//
+//  Created by DT on 14-8-19.
+//  Copyright (c) 2014年 DT. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+/**
+ *  网络请求结果类
+ */
+@interface DTNetworkResultResponse : NSObject
+
+/**
+ *  @Author DT, 14-11-14 10:11:10
+ *
+ *  网络请求url
+ */
+@property(nonatomic,strong)NSString *url;
+
+/**
+ *  @Author DT, 14-11-14 14:11:18
+ *
+ *  缓存url
+ */
+@property(nonatomic,strong)NSString *cacheUrl;
+
+/**
+ *  网络请求失败的错误提示类
+ */
+@property(nonatomic,strong)NSError *error;
+
+/**
+ *  服务器返回的json数据
+ */
+@property(nonatomic,strong)NSDictionary *dictionary;
+
+/**
+ *  返回的数据条数
+ */
+@property(nonatomic,assign)int total;
+
+/**
+ *  返回的数据状态码
+ */
+@property(nonatomic,assign)int result;
+
+/**
+ *  返回的数据提示
+ */
+@property(nonatomic,copy)NSString *message;
+
+/**
+ *  返回的具体对象(多条数据)
+ */
+@property(nonatomic,strong)NSMutableArray *objects;
+
+/**
+ *  返回的具体对象(一条数据)
+ */
+@property(nonatomic,strong)id object;
+
+
+@end

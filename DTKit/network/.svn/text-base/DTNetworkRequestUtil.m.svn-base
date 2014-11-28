@@ -1,0 +1,235 @@
+//
+//  DTNetworkRequestUtil.m
+//  PharmaceuticalBar
+//
+//  Created by DT on 14-8-19.
+//  Copyright (c) 2014年 DT. All rights reserved.
+//
+// ┏ ┓　　　┏ ┓
+//┏┛ ┻━━━━━┛ ┻┓
+//┃　　　　　　 ┃
+//┃　　　━　　　┃
+//┃　┳┛　  ┗┳　┃
+//┃　　　　　　 ┃
+//┃　　　┻　　　┃
+//┃　　　　　　 ┃
+//┗━┓　　　┏━━━┛
+//  ┃　　　┃   DT专属
+//  ┃　　　┃   神兽镇压
+//  ┃　　　┃   代码无BUG！
+//  ┃　　　┗━━━━━━━━━┓
+//  ┃　　　　　　　    ┣┓
+//  ┃　　　　         ┏┛
+//  ┗━┓ ┓ ┏━━━┳ ┓ ┏━┛
+//    ┃ ┫ ┫   ┃ ┫ ┫
+//    ┗━┻━┛   ┗━┻━┛
+//
+
+#import "DTNetworkRequestUtil.h"
+
+static DTNetworkRequestUtil * _engine = nil;
+
+@implementation DTNetworkRequestUtil
+
++(instancetype)shareInstance
+{
+    /*
+    if(!_engine){
+        _engine = [[DTNetworkRequestUtil alloc] init];
+        _engine.operations = [[NSMutableDictionary alloc] init];
+    }
+    
+    return _engine;
+     //*/
+    static id instance = nil;
+    static dispatch_once_t onceToken = 0L;
+    dispatch_once(&onceToken, ^{
+        instance = [[super allocWithZone:NULL] init];
+    });
+    return instance;
+}
+-(id)init
+{
+    self = [super init];
+    if (self) {
+        self.timeoutInterval = 60;
+    }
+    return self;
+}
+
+/**
+ *  获取唯一标识符
+ *
+ *  @return
+ */
++(NSString*)genuuid;
+{
+    CFUUIDRef uuid_ref = CFUUIDCreate(NULL);
+    CFStringRef uuid_string_ref= CFUUIDCreateString(NULL, uuid_ref);
+    CFRelease(uuid_ref);
+    NSString *uuid = [NSString stringWithString:(__bridge NSString*)uuid_string_ref];
+    
+    CFRelease(uuid_string_ref);
+    return uuid;
+    
+}
+
++(NSURL*)getImageUrl:(NSString*)url
+{
+    if (url == nil || [url isEqualToString:@""]) {
+        return nil;
+    }
+//    return [NSURL URLWithString:[SERVERIMAGEURL stringByAppendingString:url]];
+    return nil;
+}
+
+-(NSString*)requestWithPath:(NSString*)path
+                 parameters:(id)parameters
+                    success:(requestSuccess)success
+                    failure:(requestFailure)failure
+{
+    return [self requestPOSTWithPath:path parameters:parameters success:success failure:failure];
+}
+
+-(NSString*)requestWithPath:(NSString*)path
+                 parameters:(id)parameters
+                     method:(method)method
+                    success:(requestSuccess)success
+                    failure:(requestFailure)failure
+{
+    if (method == GET) {
+        return [self requestGETWithPath:path parameters:parameters success:success failure:failure];
+    }else{
+        return [self requestPOSTWithPath:path parameters:parameters success:success failure:failure];
+    }
+}
+
+/**
+ *  网络请求POST方法
+ *
+ *  @param path           路径(带域名的路径)
+ *  @param parameters     提交参数
+ *  @param success        成功Block
+ *  @param failure        失败Block
+ *
+ *  @return 一次网络操作的唯一序列号,用来取消网络请求
+ */
+-(NSString*)requestPOSTWithPath:(NSString*)path
+                 parameters:(id)parameters
+                    success:(requestSuccess)success
+                    failure:(requestFailure)failure
+{
+    __block NSString *requestIdentifier = [[self class] genuuid];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    manager.requestSerializer.timeoutInterval = self.timeoutInterval;
+    AFHTTPRequestOperation *requestOperation = [manager POST:path parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *dictionary = [NSDictionary dictionaryWithDictionary:responseObject];
+            DTNetworkResultResponse *response = [[DTNetworkResultResponse alloc] init];
+            response.dictionary = dictionary;
+            response.message = [dictionary objectForKey:@"message"];
+            response.result = [[dictionary objectForKey:@"result"] intValue];
+            response.total = [[dictionary objectForKey:@"total"] intValue];
+            if (success) {
+                success(response);
+            }
+            [[[DTNetworkRequestUtil shareInstance] operations] removeObjectForKey:requestIdentifier];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        DTNetworkResultResponse *response = [[DTNetworkResultResponse alloc] init];
+        response.error = error;
+        if (failure) {
+            failure(response);
+        }
+        [[[DTNetworkRequestUtil shareInstance] operations] removeObjectForKey:requestIdentifier];
+    }];
+    if (requestOperation) {
+        [[[DTNetworkRequestUtil shareInstance] operations] setObject:requestOperation forKey:requestIdentifier];
+    }
+    else{
+        [[[DTNetworkRequestUtil shareInstance] operations] removeObjectForKey:requestIdentifier];
+    }
+    return requestIdentifier;
+}
+/**
+ *  网络请求GET方法
+ *
+ *  @param path           路径(带域名的路径)
+ *  @param parameters     提交参数
+ *  @param success        成功Block
+ *  @param failure        失败Block
+ *
+ *  @return 一次网络操作的唯一序列号,用来取消网络请求
+ */
+-(NSString*)requestGETWithPath:(NSString*)path
+                     parameters:(id)parameters
+                        success:(requestSuccess)success
+                        failure:(requestFailure)failure
+{
+    __block NSString *requestIdentifier = [[self class] genuuid];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    manager.requestSerializer.timeoutInterval = self.timeoutInterval;
+    AFHTTPRequestOperation *requestOperation = [manager GET:path parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *dictionary = [NSDictionary dictionaryWithDictionary:responseObject];
+            DTNetworkResultResponse *response = [[DTNetworkResultResponse alloc] init];
+            response.dictionary = dictionary;
+            response.message = [dictionary objectForKey:@"message"];
+            response.result = [[dictionary objectForKey:@"result"] intValue];
+            response.total = [[dictionary objectForKey:@"total"] intValue];
+//            response.objects = [dictionary objectForKey:@"data"];
+            if (success) {
+                success(response);
+            }
+            [[[DTNetworkRequestUtil shareInstance] operations] removeObjectForKey:requestIdentifier];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        DTNetworkResultResponse *response = [[DTNetworkResultResponse alloc] init];
+        response.error = error;
+        if (failure) {
+            failure(response);
+        }
+        [[[DTNetworkRequestUtil shareInstance] operations] removeObjectForKey:requestIdentifier];
+    }];
+    if (requestOperation) {
+        [[[DTNetworkRequestUtil shareInstance] operations] setObject:requestOperation forKey:requestIdentifier];
+    }
+    else{
+        [[[DTNetworkRequestUtil shareInstance] operations] removeObjectForKey:requestIdentifier];
+    }
+    
+    return requestIdentifier;
+}
+
+-(void)cancelRequests:(NSArray*)identifiers canceled:(requestSuccess)canceled
+{
+    for (NSString *identifier in identifiers) {
+        AFHTTPRequestOperation *requestOperation = [[[DTNetworkRequestUtil shareInstance] operations] objectForKey:identifier];
+        requestOperation.completionBlock = nil;
+        [requestOperation cancel];
+        [[[DTNetworkRequestUtil shareInstance] operations] removeObjectForKey:identifier];
+    }
+    if (canceled) {
+        DTNetworkResultResponse *response = [[DTNetworkResultResponse alloc] init];
+        canceled(response);
+    }
+}
+
+-(void)cancelRequest:(NSString*)identifier canceled:(requestSuccess)canceled
+{
+    AFHTTPRequestOperation *requestOperation = [[[DTNetworkRequestUtil shareInstance] operations] objectForKey:identifier];
+    requestOperation.completionBlock = nil;
+    [requestOperation cancel];
+    [[[DTNetworkRequestUtil shareInstance] operations] removeObjectForKey:identifier];
+    
+    if (canceled) {
+        DTNetworkResultResponse *response = [[DTNetworkResultResponse alloc] init];
+        canceled(response);
+    }
+}
+
+@end
