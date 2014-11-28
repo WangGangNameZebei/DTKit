@@ -82,14 +82,14 @@
 {
     [super touchesEnded:touches withEvent:event];
     if (_isClicked) {
+        self.highlightLayer.hidden = YES;
+        _isClicked = NO;
         //延迟执行
         [self performSelector:@selector(touchesEnded) withObject:nil afterDelay:0.1f];
     }
 }
 - (void)touchesEnded
 {
-    self.highlightLayer.hidden = YES;
-    _isClicked = NO;
     if (callBack) {
         callBack();
     }

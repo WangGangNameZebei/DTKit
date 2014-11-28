@@ -44,18 +44,18 @@ typedef void (^CallBack) ();
 -(id)initWithblock:(CallBack)block;
 
 /**
- *  @Author DT, 14-11-28 14:11:48
- *
- *  高亮颜色,默认是nil
- */
-//@property(nonatomic,strong)UIColor *highlightTextColor;
-
-/**
  *  @Author DT, 14-11-28 14:11:58
  *
  *  是否增加有删除线,默认是NO
  */
 @property(nonatomic,assign)BOOL strikeThroughEnabled;
+
+/**
+ *  @Author DT, 14-11-28 16:11:00
+ *
+ *  删除线高亮显示,默认是NO
+ */
+@property(nonatomic,assign)BOOL strikeThroughHighlightedEnabled;
 
 /**
  *  @Author DT, 14-11-28 14:11:29
@@ -77,6 +77,13 @@ typedef void (^CallBack) ();
  *  是否增加下划线,默认是NO
  */
 @property(nonatomic,assign)BOOL underLineEnabled;
+
+/**
+ *  @Author DT, 14-11-28 16:11:00
+ *
+ *  下划线高亮显示,默认是NO
+ */
+@property(nonatomic,assign)BOOL underLineHighlightedEnabled;
 
 /**
  *  @Author DT, 14-11-28 14:11:45
