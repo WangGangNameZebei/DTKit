@@ -26,11 +26,13 @@
     self.itemsArray = [NSArray arrayWithObjects:
                        [NSArray arrayWithObjects:@"DTCycleScrollView",@"循环滚动ScrollView,支持自动滚动或手动滚动",@"DTCycleScrollViewController", nil],
                        [NSArray arrayWithObjects:@"DTGridTableView",@"九宫格视图TableView",@"DTGridTableViewController", nil],
-                       [NSArray arrayWithObjects:@"DTTabBar",@"九宫格试图TableView",@"DTTabBarController", nil],
+                       [NSArray arrayWithObjects:@"DTTabBar",@"实现DTTabBar效果",@"DTTabBarController", nil],
                        [NSArray arrayWithObjects:@"DTTableView",@"封装UITableView,增加多个属性,增加加载更多数据动画显示,抽取dataScoure代理",@"DTTableViewController",nil],
                        [NSArray arrayWithObjects:@"DTAlertView",@"封装UIAlertView,使用block替代delegate",@"DTAlertViewController",nil],
                        [NSArray arrayWithObjects:@"DTButton",@"自定义Button,支持点击切换默认和高亮图标",@"DTButtonController",nil],
-                       [NSArray arrayWithObjects:@"DTClickImageView",@"封装UIImageView,支持block形式的点击事件,支持点击高亮显示",@"DTImageViewController",nil], nil];
+                       [NSArray arrayWithObjects:@"DTLabel",@"封装UILabel,支持点击事件,支持高亮颜色,支持下划线,支持删除线",@"DTLabelController",nil],
+                       [NSArray arrayWithObjects:@"DTClickImageView",@"封装UIImageView,支持block形式的点击事件,支持点击高亮显示",@"DTImageViewController",nil],
+                       [NSArray arrayWithObjects:@"DTUserDefaults",@"封装NSUserDefaults,写法更加快速简便",@"DTUserDefaultsController",nil],nil];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;

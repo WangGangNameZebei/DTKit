@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6142C3EF1A280D46003693B3 /* DTUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 6142C3EE1A280D46003693B3 /* DTUserDefaults.m */; };
+		6142C3F21A2821EC003693B3 /* DTUserDefaultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6142C3F11A2821EC003693B3 /* DTUserDefaultsController.m */; };
+		6142C3F61A2848CB003693B3 /* DTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6142C3F51A2848CB003693B3 /* DTLabel.m */; };
+		6142C3F91A2860FA003693B3 /* DTLabelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6142C3F81A2860FA003693B3 /* DTLabelController.m */; };
 		61655C8A1A2424FF00660E48 /* DTImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 61655C731A2424FF00660E48 /* DTImage+Category.m */; };
 		61655C8B1A2424FF00660E48 /* DateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 61655C761A2424FF00660E48 /* DateUtil.m */; };
 		61655C8C1A2424FF00660E48 /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 61655C781A2424FF00660E48 /* iToast.m */; };
-		61655C8D1A2424FF00660E48 /* UserDefaultsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 61655C7A1A2424FF00660E48 /* UserDefaultsHelper.m */; };
 		61655C8E1A2424FF00660E48 /* DTCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61655C7E1A2424FF00660E48 /* DTCycleScrollView.m */; };
 		61655C8F1A2424FF00660E48 /* DTGridTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61655C811A2424FF00660E48 /* DTGridTableView.m */; };
 		61655C901A2424FF00660E48 /* DTGridTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61655C831A2424FF00660E48 /* DTGridTableViewCell.m */; };
@@ -83,14 +86,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6142C3ED1A280D46003693B3 /* DTUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTUserDefaults.h; sourceTree = "<group>"; };
+		6142C3EE1A280D46003693B3 /* DTUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTUserDefaults.m; sourceTree = "<group>"; };
+		6142C3F01A2821EC003693B3 /* DTUserDefaultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTUserDefaultsController.h; sourceTree = "<group>"; };
+		6142C3F11A2821EC003693B3 /* DTUserDefaultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTUserDefaultsController.m; sourceTree = "<group>"; };
+		6142C3F41A2848CB003693B3 /* DTLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTLabel.h; sourceTree = "<group>"; };
+		6142C3F51A2848CB003693B3 /* DTLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTLabel.m; sourceTree = "<group>"; };
+		6142C3F71A2860FA003693B3 /* DTLabelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTLabelController.h; sourceTree = "<group>"; };
+		6142C3F81A2860FA003693B3 /* DTLabelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTLabelController.m; sourceTree = "<group>"; };
 		61655C721A2424FF00660E48 /* DTImage+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DTImage+Category.h"; sourceTree = "<group>"; };
 		61655C731A2424FF00660E48 /* DTImage+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DTImage+Category.m"; sourceTree = "<group>"; };
 		61655C751A2424FF00660E48 /* DateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUtil.h; sourceTree = "<group>"; };
 		61655C761A2424FF00660E48 /* DateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtil.m; sourceTree = "<group>"; };
 		61655C771A2424FF00660E48 /* iToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iToast.h; sourceTree = "<group>"; };
 		61655C781A2424FF00660E48 /* iToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iToast.m; sourceTree = "<group>"; };
-		61655C791A2424FF00660E48 /* UserDefaultsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultsHelper.h; sourceTree = "<group>"; };
-		61655C7A1A2424FF00660E48 /* UserDefaultsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultsHelper.m; sourceTree = "<group>"; };
 		61655C7D1A2424FF00660E48 /* DTCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTCycleScrollView.h; sourceTree = "<group>"; };
 		61655C7E1A2424FF00660E48 /* DTCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTCycleScrollView.m; sourceTree = "<group>"; };
 		61655C801A2424FF00660E48 /* DTGridTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTGridTableView.h; sourceTree = "<group>"; };
@@ -213,6 +222,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6142C3F31A2848B9003693B3 /* DTLabel */ = {
+			isa = PBXGroup;
+			children = (
+				6142C3F41A2848CB003693B3 /* DTLabel.h */,
+				6142C3F51A2848CB003693B3 /* DTLabel.m */,
+			);
+			path = DTLabel;
+			sourceTree = "<group>";
+		};
 		61655C701A2424FF00660E48 /* category */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,8 +255,8 @@
 				61655C761A2424FF00660E48 /* DateUtil.m */,
 				61655C771A2424FF00660E48 /* iToast.h */,
 				61655C781A2424FF00660E48 /* iToast.m */,
-				61655C791A2424FF00660E48 /* UserDefaultsHelper.h */,
-				61655C7A1A2424FF00660E48 /* UserDefaultsHelper.m */,
+				6142C3ED1A280D46003693B3 /* DTUserDefaults.h */,
+				6142C3EE1A280D46003693B3 /* DTUserDefaults.m */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -246,6 +264,7 @@
 		61655C7B1A2424FF00660E48 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				6142C3F31A2848B9003693B3 /* DTLabel */,
 				61739B321A26F2D5007F973C /* DTImageView */,
 				61865A1B1A25D6DE0036F61C /* DTAlertView */,
 				61655CE51A2483C100660E48 /* DTTableView */,
@@ -333,6 +352,10 @@
 				61739B301A26EAF9007F973C /* DTAlertViewController.m */,
 				61739B651A27185C007F973C /* DTImageViewController.h */,
 				61739B661A27185C007F973C /* DTImageViewController.m */,
+				6142C3F01A2821EC003693B3 /* DTUserDefaultsController.h */,
+				6142C3F11A2821EC003693B3 /* DTUserDefaultsController.m */,
+				6142C3F71A2860FA003693B3 /* DTLabelController.h */,
+				6142C3F81A2860FA003693B3 /* DTLabelController.m */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -584,6 +607,8 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
+				"zh-Hans",
 			);
 			mainGroup = 61BDD2201A23305A00C15AE3;
 			productRefGroup = 61BDD22A1A23305A00C15AE3 /* Products */;
@@ -642,13 +667,15 @@
 				61739B311A26EAF9007F973C /* DTAlertViewController.m in Sources */,
 				61655C8E1A2424FF00660E48 /* DTCycleScrollView.m in Sources */,
 				61BDD2351A23305A00C15AE3 /* ViewController.m in Sources */,
+				6142C3F21A2821EC003693B3 /* DTUserDefaultsController.m in Sources */,
 				61655C9A1A2451E900660E48 /* DTCycleScrollViewController.m in Sources */,
 				61655CB61A245D1200660E48 /* UIScrollView+MJExtension.m in Sources */,
+				6142C3EF1A280D46003693B3 /* DTUserDefaults.m in Sources */,
 				61739B671A27185C007F973C /* DTImageViewController.m in Sources */,
-				61655C8D1A2424FF00660E48 /* UserDefaultsHelper.m in Sources */,
 				61655CB31A245D1200660E48 /* MJRefreshConst.m in Sources */,
 				61655C8B1A2424FF00660E48 /* DateUtil.m in Sources */,
 				61865A0E1A25A47C0036F61C /* DTTableViewStyleCell2.m in Sources */,
+				6142C3F91A2860FA003693B3 /* DTLabelController.m in Sources */,
 				61655C961A2426B700660E48 /* DTButton.m in Sources */,
 				61655CF01A2483C100660E48 /* DTTableViewDataSource.m in Sources */,
 				61655CB81A245D1200660E48 /* UIView+MJExtension.m in Sources */,
@@ -677,6 +704,7 @@
 				61BDD2321A23305A00C15AE3 /* AppDelegate.m in Sources */,
 				61865A081A25A3610036F61C /* DTTableViewStyle2Controller.m in Sources */,
 				61BDD22F1A23305A00C15AE3 /* main.m in Sources */,
+				6142C3F61A2848CB003693B3 /* DTLabel.m in Sources */,
 				61865A1E1A25D6F60036F61C /* DTAlertView.m in Sources */,
 				61655C901A2424FF00660E48 /* DTGridTableViewCell.m in Sources */,
 				61865A051A2580040036F61C /* DTTableViewStyle1Controller.m in Sources */,
@@ -803,6 +831,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DTKitDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/DT/Downloads/TFramework/TOther/WeChatSDK,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -813,6 +845,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DTKitDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/DT/Downloads/TFramework/TOther/WeChatSDK,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
