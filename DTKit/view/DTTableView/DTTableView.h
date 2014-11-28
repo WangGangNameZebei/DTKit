@@ -29,6 +29,20 @@ typedef enum {
 @interface DTTableView : UITableView
 
 /**
+ *  @Author DT, 14-11-28 17:11:25
+ *
+ *  是否隐藏多余分割线,默认是YES
+ */
+@property(nonatomic,assign)BOOL surplusSeparatorEnabled;
+
+/**
+ *  @Author DT, 14-11-28 17:11:09
+ *
+ *  分割线是否从0开始,默认为NO
+ */
+@property(nonatomic,assign)BOOL separatorZeroEnabled;
+
+/**
  *  总数
  */
 @property(nonatomic,assign)int total;

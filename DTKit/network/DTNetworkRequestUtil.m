@@ -139,9 +139,6 @@ static DTNetworkRequestUtil * _engine = nil;
             response.url = [operation.request.URL absoluteString];
             response.cacheUrl = cacheUrl;
             response.dictionary = dictionary;
-            response.message = [dictionary objectForKey:@"message"];
-            response.result = [[dictionary objectForKey:@"result"] intValue];
-            response.total = [[dictionary objectForKey:@"total"] intValue];
             if (success) {
                 success(response);
             }
@@ -196,9 +193,6 @@ static DTNetworkRequestUtil * _engine = nil;
             response.url = [operation.request.URL absoluteString];
             response.cacheUrl = cacheUrl;
             response.dictionary = dictionary;
-            response.message = [dictionary objectForKey:@"message"];
-            response.result = [[dictionary objectForKey:@"result"] intValue];
-            response.total = [[dictionary objectForKey:@"total"] intValue];
             if (success) {
                 success(response);
             }

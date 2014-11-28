@@ -38,21 +38,6 @@
 @property(nonatomic,strong)NSDictionary *dictionary;
 
 /**
- *  返回的数据条数
- */
-@property(nonatomic,assign)int total;
-
-/**
- *  返回的数据状态码
- */
-@property(nonatomic,assign)int result;
-
-/**
- *  返回的数据提示
- */
-@property(nonatomic,copy)NSString *message;
-
-/**
  *  返回的具体对象(多条数据)
  */
 @property(nonatomic,strong)NSMutableArray *objects;

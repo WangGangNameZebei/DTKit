@@ -29,6 +29,8 @@
         self.backgroundView = nil;
         self.backgroundColor = [UIColor clearColor];
         self.sectionType = UITableViewDefault;
+        self.surplusSeparatorEnabled = YES;
+        self.separatorZeroEnabled = NO;
     }
     return self;
 }
@@ -42,8 +44,28 @@
         self.backgroundView = nil;
         self.backgroundColor = [UIColor clearColor];
         self.sectionType = UITableViewDefault;
+        self.surplusSeparatorEnabled = YES;
+        self.separatorZeroEnabled = NO;
     }
     return self;
+}
+
+-(void)setSurplusSeparatorEnabled:(BOOL)surplusSeparatorEnabled
+{
+    if (surplusSeparatorEnabled) {
+        self.tableFooterView = [UIView new];
+    }
+}
+
+-(void)setSeparatorZeroEnabled:(BOOL)separatorZeroEnabled
+{
+    if (!separatorZeroEnabled) {
+        if ([[UIDevice currentDevice].systemVersion floatValue]>=7.0) {
+            if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
+                [self setSeparatorInset:UIEdgeInsetsZero];
+            }
+        }
+    }
 }
 
 -(void)addFirstArray:(NSMutableArray *)array

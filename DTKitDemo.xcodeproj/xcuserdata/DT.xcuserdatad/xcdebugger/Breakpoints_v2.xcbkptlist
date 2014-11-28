@@ -164,11 +164,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DTKit/view/DTTableView/DTTableView.m"
-            timestampString = "438743807.83094"
+            timestampString = "438858656.683661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "-addFirstArray:"
             landmarkType = "5">
          </BreakpointContent>
