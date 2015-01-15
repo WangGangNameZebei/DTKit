@@ -14,15 +14,11 @@
 @interface DTNetworkResultResponse : NSObject
 
 /**
- *  @Author DT, 14-11-14 10:11:10
- *
  *  网络请求url
  */
 @property(nonatomic,strong)NSString *url;
 
 /**
- *  @Author DT, 14-11-14 14:11:18
- *
  *  缓存url
  */
 @property(nonatomic,strong)NSString *cacheUrl;

@@ -11,7 +11,7 @@
 /**
  *  @Author DT, 14-11-25 17:11:23
  *
- *  自定义Button,实现图片在上面,文字在下面效果
+ *  @brief 自定义Button,实现图片在上面,文字在下面效果
  */
 @interface DTImageTopButton : UIButton
 

@@ -68,8 +68,13 @@
     [super drawTextInRect:rect];
     if (self.strikeThroughEnabled) {//表示有删除线
         if ((self.strikeThroughHighlightedEnabled && _isClicked ) || !self.strikeThroughHighlightedEnabled) {
-            NSDictionary *attributes = @{NSFontAttributeName: [self font]};
-            CGSize textSize = [[self text] sizeWithAttributes:attributes];
+            CGSize textSize;
+            if ([[UIDevice currentDevice].systemVersion floatValue]>=7.0) {
+                NSDictionary *attributes = @{NSFontAttributeName: [self font]};
+                textSize = [[self text] sizeWithAttributes:attributes];
+            }else{
+                textSize = [[self text] sizeWithFont:[self font]];
+            }
             CGFloat strikeWidth = textSize.width;
             CGRect strikeThroughRect;
             if ([self textAlignment] == NSTextAlignmentRight){
@@ -93,8 +98,13 @@
     }
     if (self.underLineEnabled) {//表示有下划线
         if ((self.underLineHighlightedEnabled && _isClicked ) || !self.underLineHighlightedEnabled) {
-            NSDictionary *attributes = @{NSFontAttributeName: [self font]};
-            CGSize textSize = [[self text] sizeWithAttributes:attributes];
+            CGSize textSize;
+            if ([[UIDevice currentDevice].systemVersion floatValue]>=7.0) {
+                NSDictionary *attributes = @{NSFontAttributeName: [self font]};
+                textSize = [[self text] sizeWithAttributes:attributes];
+            }else{
+                textSize = [[self text] sizeWithFont:[self font]];
+            }
             CGFloat strikeWidth = textSize.width;
             CGRect underLineRect;
             if ([self textAlignment] == NSTextAlignmentRight){

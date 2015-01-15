@@ -11,14 +11,14 @@
 /**
  *  @Author DT, 14-11-28 10:11:52
  *
- *  NSUserDefaults封装类
+ *  @brief NSUserDefaults封装类
  */
 @interface DTUserDefaults : NSObject
 
 /**
  *  @Author DT, 14-11-28 10:11:11
  *
- *  获取NSUserDefaults中String类型数据
+ *  @brief 获取NSUserDefaults中String类型数据
  *
  *  @param key
  *
@@ -29,7 +29,7 @@
 /**
  *  @Author DT, 14-11-28 10:11:19
  *
- *  获取NSUserDefaults中Integer类型数据
+ *  @brief 获取NSUserDefaults中Integer类型数据
  *
  *  @param key
  *
@@ -40,7 +40,7 @@
 /**
  *  @Author DT, 14-11-28 10:11:19
  *
- *  获取NSUserDefaults中Dictionary类型数据
+ *  @brief 获取NSUserDefaults中Dictionary类型数据
  *
  *  @param key
  *
@@ -51,7 +51,7 @@
 /**
  *  @Author DT, 14-11-28 10:11:19
  *
- *  获取NSUserDefaults中Array类型数据
+ *  @brief 获取NSUserDefaults中Array类型数据
  *
  *  @param key
  *
@@ -62,7 +62,7 @@
 /**
  *  @Author DT, 14-11-28 10:11:19
  *
- *  获取NSUserDefaults中BOOL类型数据
+ *  @brief 获取NSUserDefaults中BOOL类型数据
  *
  *  @param key
  *
@@ -73,7 +73,7 @@
 /**
  *  @Author DT, 14-11-28 10:11:16
  *
- *  往NSUserDefaults里面插入String类型数据
+ *  @brief 往NSUserDefaults里面插入String类型数据
  *
  *  @param value
  *  @param key
@@ -83,7 +83,7 @@
 /**
  *  @Author DT, 14-11-28 10:11:16
  *
- *  往NSUserDefaults里面插入Integer类型数据
+ *  @brief 往NSUserDefaults里面插入Integer类型数据
  *
  *  @param value
  *  @param key
@@ -93,7 +93,7 @@
 /**
  *  @Author DT, 14-11-28 10:11:16
  *
- *  往NSUserDefaults里面插入Dictionary类型数据
+ *  @brief 往NSUserDefaults里面插入Dictionary类型数据
  *
  *  @param value
  *  @param key
@@ -103,7 +103,7 @@
 /**
  *  @Author DT, 14-11-28 10:11:16
  *
- *  往NSUserDefaults里面插入Array类型数据
+ *  @brief 往NSUserDefaults里面插入Array类型数据
  *
  *  @param value
  *  @param key
@@ -113,7 +113,7 @@
 /**
  *  @Author DT, 14-11-28 10:11:16
  *
- *  往NSUserDefaults里面插入Bool类型数据
+ *  @brief 往NSUserDefaults里面插入Bool类型数据
  *
  *  @param value
  *  @param key

@@ -15,7 +15,7 @@
 // block self
 #define WEAKSELF typeof(self) __weak weakSelf = self;
 
-@interface DTTableViewStyle3Controller()
+@interface DTTableViewStyle3Controller()<UITableViewDelegate>
 
 @property(nonatomic,strong)DTTableView *tableView;
 @property(nonatomic,strong)NSMutableArray *itemArray;
@@ -62,6 +62,7 @@
     self.tableView.rowHeight = 70;
     self.tableView.sectionType = UITableViewSection;
     [self.tableView registerClass:[DTTableViewStyleCell2 class] forCellReuseIdentifier:@"cell"];
+    self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
     
     [self.tableView initWithCellIdentifier:@"cell" configureCellBlock:^(UITableViewCell *cell, NSString *identifier, NSIndexPath *indexPath, id data) {
@@ -70,8 +71,18 @@
     }];
     
     [self.tableView titleForHeaderWithBolock:^NSString *(NSInteger section) {
-        return [NSString stringWithFormat:@"%i",section];
+        return [NSString stringWithFormat:@"Header:%i",section];
     }];
+    
+    [self.tableView titleForFooterWithBolock:^NSString *(NSInteger section) {
+        return [NSString stringWithFormat:@"Footer:%i",section];
+    }];
+}
+
+#pragma mark UITableViewDelegate
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self.tableView removeSectionStickiness:scrollView];
 }
 
 @end

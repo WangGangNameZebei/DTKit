@@ -11,25 +11,25 @@
 /**
  *  @Author DT, 14-11-14 11:11:18
  *
- *  网络请求缓存类
+ *  @brief 网络请求缓存类
  */
 @interface DTNetworkCache : NSObject
 
 /**
  *  @Author DT, 14-11-14 15:11:07
  *
- *  缓存文件夹路径
+ *  @brief 缓存文件夹路径
  */
 @property(nonatomic,copy,readonly)NSString *cachesDirPath;
 /**
  *  @Author DT, 14-11-14 15:11:20
  *
- *  缓存文件集合
+ *  @brief 缓存文件集合
  */
 @property(nonatomic,strong,readonly)NSMutableArray *cachesPaths;
 
 /**
- *  初始化方法
+ *  @brief 初始化方法
  *
  *  @return 返回DTNetworkCache对象
  */
@@ -38,21 +38,21 @@
 /**
  *  @Author DT, 14-11-14 14:11:17
  *
- *  创建缓存文件夹
+ *  @brief 创建缓存文件夹
  */
 -(void)createLocalCacheDir;
 
 /**
  *  @Author DT, 14-11-14 14:11:02
  *
- *  删除缓存文件夹(清理缓存)
+ *  @brief 删除缓存文件夹(清理缓存)
  */
 -(void)deleteLocalCacheDir;
 
 /**
  *  @Author DT, 14-11-14 15:11:08
  *
- *  检查本地缓存大小
+ *  @brief 检查本地缓存大小
  *
  *  @return 返回float,单位K
  */
@@ -61,7 +61,7 @@
 /**
  *  @Author DT, 14-11-14 14:11:14
  *
- *  保存缓存数据
+ *  @brief 保存缓存数据
  *
  *  @param fileName 缓存文件名
  *  @param json     缓存文件内容,NSDictionary类型
@@ -73,7 +73,7 @@
 /**
  *  @Author DT, 14-11-14 14:11:03
  *
- *  读取缓存数据
+ *  @brief 读取缓存数据
  *
  *  @param path 缓存文件路径
  *

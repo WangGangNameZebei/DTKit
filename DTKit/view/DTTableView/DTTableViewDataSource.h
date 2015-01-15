@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "DTTableView.h"
 
 /** 回调函数 */
 typedef void (^TableViewCellConfigureBlock)(UITableViewCell *cell, NSString *identifier, NSIndexPath *indexPath, id data);
@@ -18,6 +19,8 @@ typedef NSString* (^TableViewTitleConfigureBlock)(NSInteger section);
  *  抽取UITableViewDataSource,不支持section分段
  */
 @interface DTTableViewDataSource : NSObject<UITableViewDataSource>
+
+@property (nonatomic, strong) DTTableView *tableView;
 
 /**
  *  数据集合

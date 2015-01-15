@@ -24,21 +24,22 @@ typedef enum {
 /**
  *  @Author DT, 14-11-25 17:11:12
  *
- *  封装UITableView,可以不用实现dataSource代理
+ *  @brief 封装UITableView,可以不用实现dataSource代理
  */
 @interface DTTableView : UITableView
 
 /**
  *  @Author DT, 14-11-28 17:11:25
  *
- *  是否隐藏多余分割线,默认是YES
+ *  @brief 是否隐藏多余分割线,默认是YES
  */
 @property(nonatomic,assign)BOOL surplusSeparatorEnabled;
 
 /**
  *  @Author DT, 14-11-28 17:11:09
  *
- *  分割线是否从0开始,默认为NO
+ *  @brief 分割线是否从0开始,默认为NO
+ *  @brief 在ios8系统下要是用户自己实现dataSource代理方法的话,这个属性会不起作用的
  */
 @property(nonatomic,assign)BOOL separatorZeroEnabled;
 
@@ -66,6 +67,13 @@ typedef enum {
  *  枚举类型,默认是UITableViewDefault
  */
 @property (nonatomic, assign) tableViewSectionType sectionType;
+
+/**
+ *  去掉section黏性,一般写在scrollViewDidScroll代理方法里面的
+ *
+ *  @param scrollView scrollView
+ */
+-(void)removeSectionStickiness:(UIScrollView*)scrollView;
 
 /**
  *  第一次添加数据

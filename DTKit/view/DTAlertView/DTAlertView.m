@@ -37,13 +37,13 @@
         self.title = title;
         self.message = message;
         self.delegate = self;
-        if (cancelButtonTitle !=nil && ![cancelButtonTitle isEqualToString:@""]) {
-            [self addButtonWithTitle:cancelButtonTitle];
-        }
         for (NSString *otherButtonTitle in arrays) {
             if (otherButtonTitle !=nil && ![otherButtonTitle isEqualToString:@""]) {
                 [self addButtonWithTitle:otherButtonTitle];
             }
+        }
+        if (cancelButtonTitle !=nil && ![cancelButtonTitle isEqualToString:@""]) {
+            [self addButtonWithTitle:cancelButtonTitle];
         }
         [self show];
     }

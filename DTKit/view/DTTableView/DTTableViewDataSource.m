@@ -103,9 +103,19 @@
         }
     }
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
+    if (self.tableView.separatorZeroEnabled) {//隐藏ios8下多余分割线
+        if ([[UIDevice currentDevice].systemVersion floatValue]>=7.0) {
+            if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+                [cell setSeparatorInset:UIEdgeInsetsZero];
+            }
+            
+            if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+                [cell setLayoutMargins:UIEdgeInsetsZero];
+            }
+        }
+    }
     id item = [self itemAtIndexPath:indexPath];
     self.configureCellBlock(cell, self.cellIdentifier, indexPath, item);
-    
     return cell;
 }
 

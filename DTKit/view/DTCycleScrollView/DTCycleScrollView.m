@@ -229,4 +229,9 @@
     [self.scrollView setContentOffset:CGPointMake(self.scrollView.frame.size.width, 0) animated:YES];
 }
 
+- (void)dealloc
+{
+    self.animationDuration = 0;
+}
+
 @end

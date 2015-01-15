@@ -59,12 +59,29 @@
 
 -(void)setSeparatorZeroEnabled:(BOOL)separatorZeroEnabled
 {
-    if (!separatorZeroEnabled) {
+    _separatorZeroEnabled = separatorZeroEnabled;
+    
+    if (separatorZeroEnabled) {
         if ([[UIDevice currentDevice].systemVersion floatValue]>=7.0) {
             if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
                 [self setSeparatorInset:UIEdgeInsetsZero];
             }
+            if ([[UIDevice currentDevice].systemVersion floatValue]>=8.0) {
+                if ([self respondsToSelector:@selector(setLayoutMargins:)]) {
+                    [self setLayoutMargins:UIEdgeInsetsZero];
+                }
+            }
         }
+    }
+}
+
+-(void)removeSectionStickiness:(UIScrollView*)scrollView;
+{
+    CGFloat sectionHeaderHeight = 40;//section的高度
+    if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
+        scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+    } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
+        scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
     }
 }
 
@@ -104,9 +121,11 @@
 {
     if (self.sectionType == UITableViewDefault) {
         self.tableViewDataSource = [[DTTableViewDataSource alloc] initWithIdentifier:cellIdentifier configureCellBlock:configureCellBlock];
+        self.tableViewDataSource.tableView = self;
         self.dataSource = self.tableViewDataSource;
     }else{
         self.tableViewDataSource = [[DTTableViewSectionDataSource alloc] initWithIdentifier:cellIdentifier configureCellBlock:configureCellBlock];
+        self.tableViewDataSource.tableView = self;
         self.dataSource = self.tableViewDataSource;
     }
 }
@@ -116,9 +135,11 @@
 {
     if (self.sectionType == UITableViewDefault) {
         self.tableViewDataSource = [[DTTableViewDataSource alloc] initWithCellIdentifiers:cellIdentifiers configureCellBlock:configureCellBlock];
+        self.tableViewDataSource.tableView = self;
         self.dataSource = self.tableViewDataSource;
     }else{
         self.tableViewDataSource = [[DTTableViewSectionDataSource alloc] initWithCellIdentifiers:cellIdentifiers configureCellBlock:configureCellBlock];
+        self.tableViewDataSource.tableView = self;
         self.dataSource = self.tableViewDataSource;
     }
 }

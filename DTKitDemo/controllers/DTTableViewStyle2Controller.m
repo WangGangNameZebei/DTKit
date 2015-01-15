@@ -57,6 +57,7 @@
     self.tableView.rowHeight = 70;
     self.tableView.separatorColor = [UIColor blackColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    self.tableView.separatorZeroEnabled = YES;
     //必写,不然程序会报错
     [self.tableView registerClass:[DTTableViewStyleCell1 class] forCellReuseIdentifier:IDENTIFIER_CELL1];
     [self.tableView registerClass:[DTTableViewStyleCell2 class] forCellReuseIdentifier:IDENTIFIER_CELL2];

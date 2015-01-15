@@ -158,8 +158,7 @@ static DTNetworkRequestUtil * _engine = nil;
     }];
     if (requestOperation) {
         [[[DTNetworkRequestUtil shareInstance] operations] setObject:requestOperation forKey:requestIdentifier];
-    }
-    else{
+    }else{
         [[[DTNetworkRequestUtil shareInstance] operations] removeObjectForKey:requestIdentifier];
     }
     return requestIdentifier;
@@ -211,8 +210,7 @@ static DTNetworkRequestUtil * _engine = nil;
     }];
     if (requestOperation) {
         [[[DTNetworkRequestUtil shareInstance] operations] setObject:requestOperation forKey:requestIdentifier];
-    }
-    else{
+    }else{
         [[[DTNetworkRequestUtil shareInstance] operations] removeObjectForKey:requestIdentifier];
     }
     return requestIdentifier;

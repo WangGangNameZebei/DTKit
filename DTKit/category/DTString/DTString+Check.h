@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- *  NSString扩展类,主要显示校验功能
+ *  NSString扩展类,主要实现校验功能
  */
 @interface NSString (Check)
 
@@ -70,8 +70,6 @@
                    maxLenth:(NSInteger)maxLenth
              containChinese:(BOOL)containChinese
         firstCannotBeDigtal:(BOOL)firstCannotBeDigtal;
-
-
 
 /**
  *  去掉两端空格和换行符

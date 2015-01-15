@@ -10,4 +10,6 @@
 
 @interface DTAlbumDetailsController : UIViewController
 
+@property(nonatomic,copy)NSString *type;
+
 @end

@@ -62,6 +62,9 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
+    self.tableView.autoresizesSubviews = YES;
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
+    
 }
 
 #pragma mark UITableViewDataSource
