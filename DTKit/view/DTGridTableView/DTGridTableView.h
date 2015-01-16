@@ -46,7 +46,7 @@
  *  @param gridView gridView
  *  @param index    位置
  */
-- (void)gridView:(UIView*)gridView gridViewForRowAtIndexPath:(int)index;
+- (void)gridView:(UIView*)gridView gridViewForRowAtIndexPath:(NSInteger)index;
 
 @end
 

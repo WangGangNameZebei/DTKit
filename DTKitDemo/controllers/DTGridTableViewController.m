@@ -96,10 +96,10 @@
 }
 
 #pragma mark DTGridTableViewDelegate
-- (void)gridView:(UIView*)gridView gridViewForRowAtIndexPath:(int)index
+- (void)gridView:(UIView*)gridView gridViewForRowAtIndexPath:(NSInteger)index
 {
     DTGridTableCellView *view = (DTGridTableCellView*)gridView;
     view.backgroundColor = [self.itemsArray objectAtIndex:index];
-    view.label.text = [NSString stringWithFormat:@"%i",index];
+    view.label.text = [NSString stringWithFormat:@"%li",(long)index];
 }
 @end

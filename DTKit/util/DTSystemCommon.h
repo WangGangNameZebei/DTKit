@@ -12,6 +12,8 @@
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #import <SystemConfiguration/CaptiveNetwork.h>
 #import <AVFoundation/AVFoundation.h>
+#import <SystemConfiguration/SCNetworkReachability.h>
+#include <netinet/in.h>
 
 //-----------------------------------------
 //------------ 系统常用方法 -----------------
@@ -83,6 +85,16 @@ void systemFlashlightFlashing(BOOL flashed);
  */
 void systemTimerDisabled(BOOL enabled);
 
+#pragma mark 判断设备是否联网
+/*!
+ *  @Author DT
+ *
+ *  @brief  判断设备是否联网
+ *
+ *  @return 联网的话返回YES,反之返回NO
+ */
+BOOL systemConnectedToNetwork();
+
 #pragma mark 获取手机连接wifi的名称
 /**
  *  @Author DT, 14-12-09 14:12:54
@@ -113,15 +125,41 @@ NSString* systemMacAddress();
  */
 NSString* systemIPAddress();
 
-#pragma mark 手机屏幕截图
-/**
- *  @Author DT, 14-12-09 15:12:49
+#pragma mark view转化模糊image
+/*!
+ *  @Author DT
  *
- *  @brief  手机屏幕截图,不支持模拟器
+ *  @brief  把指定view转化成模糊图片
  *
- *  @return UIImage对象
+ *  @param view 指定view
+ *
+ *  @return 模糊图片
  */
-UIImage* systemTakeShot();
+UIImage* systemFuzzyPicture(UIView *view);
+
+#pragma mark view转化高清image(可用于屏幕截图)
+/*!
+ *  @Author DT
+ *
+ *  @brief  把指定view转化成高清图片
+ *
+ *  @param view 指定view
+ *
+ *  @return 高清图片
+ */
+UIImage* systemHQPicture(UIView *view);
+
+#pragma mark view转化半透明高清image
+/*!
+ *  @Author DT
+ *
+ *  @brief  把指定view转化成半透明高清图片
+ *
+ *  @param view 指定view
+ *
+ *  @return 半透明高清图片
+ */
+UIImage* systemTranslucenceHQPicture(UIView *view);
 
 #pragma mark 使手机振动
 /**
@@ -350,11 +388,21 @@ NSString* systemVersion();
  */
 NSString* systemBuild();
 
+#pragma mark 获取设备的尺寸
+/*
+ *  @Author DT
+ *
+ *  @brief  获取设备的尺寸
+ *
+ *  @return 返回"3.5"、"4.0"、"4.7"、"5.5",未知设备返回nil
+ */
+NSString* systemDeviceSize();
+
 #pragma mark 获取设备的硬件名称
 /**
  *  @Author DT, 14-12-01 10:12:21
  *
- *  @brief
+ *  @brief  获取设备的硬件名称
  *
  *  @return 硬件名称
  */
@@ -419,3 +467,124 @@ NSString* systemDeviceLanguage();
  *  @return 国家
  */
 NSString* systemDeviceCountry();
+
+#pragma mark 获取指定view的x值
+/**
+ *  @Author DT, 14-12-16 09:12:03
+ *
+ *  @brief  获取指定view的x值
+ *
+ *  @param view 指定view
+ *
+ *  @return x值
+ */
+float systemX(UIView *view);
+
+#pragma mark 获取指定view的y值
+/**
+ *  @Author DT, 14-12-16 09:12:29
+ *
+ *  @brief  获取指定view的y值
+ *
+ *  @param view 指定view
+ *
+ *  @return y值
+ */
+float systemY(UIView *view);
+
+#pragma mark 获取指定view的width值
+/**
+ *  @Author DT, 14-12-16 09:12:44
+ *
+ *  @brief  获取指定view的width值
+ *
+ *  @param view 指定view
+ *
+ *  @return width值
+ */
+int systemWidth(UIView *view);
+
+#pragma mark 获取指定view的height值
+/**
+ *  @Author DT, 14-12-16 09:12:05
+ *
+ *  @brief  获取指定view的height值
+ *
+ *  @param view 指定view
+ *
+ *  @return height值
+ */
+int systemHeight(UIView *view);
+
+#pragma mark 获取指定view的Right值
+/**
+ *  @Author DT, 14-12-16 09:12:05
+ *
+ *  @brief  获取指定view的right值,即x+width
+ *
+ *  @param view 指定view
+ *
+ *  @return right值
+ */
+float systemRight(UIView *view);
+
+#pragma mark 获取指定view的Bottom值
+/**
+ *  @Author DT, 14-12-16 09:12:05
+ *
+ *  @brief  获取指定view的bottom值,即y+height
+ *
+ *  @param view 指定view
+ *
+ *  @return bottom值
+ */
+float systemBottom(UIView *view);
+
+#pragma mark 获取设备宽度
+/**
+ *  @Author DT, 14-12-16 09:12:20
+ *
+ *  @brief  获取设备宽度
+ *
+ *  @return 宽度
+ */
+int systemScreenWidth();
+
+#pragma mark 获取设备高度
+/**
+ *  @Author DT, 14-12-16 09:12:31
+ *
+ *  @brief  获取设备高度
+ *
+ *  @return 高度
+ */
+int systemScreenHeight();
+
+#pragma mark RGB赋值颜色,没有透明度
+/*!
+ *  @Author DT
+ *
+ *  @brief  RGB赋值颜色,没有透明度
+ *
+ *  @param r 红色
+ *  @param g 绿色
+ *  @param b 蓝色
+ *
+ *  @return UIColor
+ */
+UIColor* systemRGBCOLOR(int r, int g, int b);
+
+#pragma mark RGB赋值颜色,有透明度
+/*!
+ *  @Author DT
+ *
+ *  @brief  RGB赋值颜色,有透明度
+ *
+ *  @param r 红色
+ *  @param g 绿色
+ *  @param b 蓝色
+ *  @param a 透明度[0-1]范围
+ *
+ *  @return UIColor
+ */
+UIColor* systemRGBACOLOR(int r, int g, int b, float a);

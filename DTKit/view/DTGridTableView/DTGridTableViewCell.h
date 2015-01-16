@@ -25,5 +25,5 @@
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
            delegate:(id <DTGridTableViewCellDelegate>)delegate
-          rowNumber:(int)number rowHeight:(float)height indexPath:(NSIndexPath *)indexPath;
+          rowNumber:(NSInteger)number rowHeight:(CGFloat)height indexPath:(NSIndexPath *)indexPath;
 @end

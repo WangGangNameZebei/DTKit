@@ -57,7 +57,7 @@
     _intLabel.textColor = [UIColor blackColor];
     _intLabel.font = [UIFont systemFontOfSize:14.0f];
     NSInteger integer = [DTUserDefaults getIntegerForkey:@"integer"];
-    _intLabel.text = [NSString stringWithFormat:@"获取的integer类型值:%i",integer];
+    _intLabel.text = [NSString stringWithFormat:@"获取的integer类型值:%li",(long)integer];
     [self.view addSubview:_intLabel];
     
     _arrayLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 110, 300, 20)];

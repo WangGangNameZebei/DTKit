@@ -71,7 +71,7 @@
 {
     // 不能跟用户交互，直接返回
     if (!self.userInteractionEnabled || self.alpha <= 0.01 || self.hidden) return;
-    
+
     if ([MJRefreshContentSize isEqualToString:keyPath]) {
         // 调整frame
         [self adjustFrameWithContentSize];

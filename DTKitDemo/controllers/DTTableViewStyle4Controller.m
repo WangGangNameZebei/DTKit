@@ -84,7 +84,7 @@
     }];
     
     [self.tableView titleForHeaderWithBolock:^NSString *(NSInteger section) {
-        return [NSString stringWithFormat:@"%i",section];
+        return [NSString stringWithFormat:@"%li",(long)section];
     }];
     
 }

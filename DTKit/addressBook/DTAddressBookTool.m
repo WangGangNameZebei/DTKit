@@ -204,7 +204,7 @@
     
     NSMutableArray *emailArray = [[NSMutableArray alloc] init];
     ABMultiValueRef email = ABRecordCopyValue(person, kABPersonEmailProperty);
-    int emailcount = ABMultiValueGetCount(email);
+    NSInteger emailcount = ABMultiValueGetCount(email);
     for (int x = 0; x < emailcount; x++) {
         NSDictionary *dictionary = @{@"title":CFBridgingRelease(ABAddressBookCopyLocalizedLabel(ABMultiValueCopyLabelAtIndex(email, x))),
                                      @"email":CFBridgingRelease(ABMultiValueCopyValueAtIndex(email, x))};
@@ -216,7 +216,7 @@
     if ([[UIDevice currentDevice].systemVersion floatValue] < 7.0) {
         NSMutableArray *addressArray = [[NSMutableArray alloc] init];
         ABMultiValueRef address = ABRecordCopyValue(person, kABPersonAddressProperty);
-        int count = ABMultiValueGetCount(address);
+        NSInteger count = ABMultiValueGetCount(address);
         for(int j = 0; j < count; j++) {
             NSDictionary* personaddress =CFBridgingRelease(ABMultiValueCopyValueAtIndex(address, j));
             NSDictionary *dictionary = @{@"address":CFBridgingRelease(ABMultiValueCopyLabelAtIndex(address, j)),
@@ -233,8 +233,8 @@
     
     NSMutableArray *dateArray = [[NSMutableArray alloc] init];
     ABMultiValueRef dates = ABRecordCopyValue(person, kABPersonDateProperty);
-    int datescount = ABMultiValueGetCount(dates);
-    for (int y = 0; y < datescount; y++) {
+    NSInteger datescount = ABMultiValueGetCount(dates);
+    for (NSInteger y = 0; y < datescount; y++) {
         NSDictionary *dictionary = @{@"title":CFBridgingRelease(ABAddressBookCopyLocalizedLabel(ABMultiValueCopyLabelAtIndex(dates, y))),
                                      @"dates":CFBridgingRelease(ABMultiValueCopyValueAtIndex(dates, y))};
         [emailArray addObject:dictionary];
