@@ -52,18 +52,18 @@
     if (button.tag == 1) {
         DTAlertView *alterView = [[DTAlertView alloc] initWithTitle:@"标题" message:@"我是一个按钮的AlertView" cancelButtonTitle:@"确定" otherButtonTitles:nil,nil];
         [alterView handlerClickedButton:^(DTAlertView *alertView, NSInteger buttonIndex) {
-            NSLog(@"%i",buttonIndex);
+            NSLog(@"%li",(long)buttonIndex);
         }];
     }else if (button.tag ==2){
         DTAlertView *alterView = [[DTAlertView alloc] initWithTitle:@"标题" message:@"我是二个按钮的AlertView" cancelButtonTitle:@"取消" otherButtonTitles:@"确定",nil];
         [alterView handlerClickedButton:^(DTAlertView *alertView, NSInteger buttonIndex) {
-            NSLog(@"%i",buttonIndex);
+            NSLog(@"%li",(long)buttonIndex);
         }];
     
     }else if (button.tag ==3){
         DTAlertView *alterView = [[DTAlertView alloc] initWithTitle:@"标题" message:@"我是二个按钮的AlertView" cancelButtonTitle:@"按钮1" otherButtonTitles:@"按钮2",@"按钮3",@"取消",nil];
         [alterView handlerClickedButton:^(DTAlertView *alertView, NSInteger buttonIndex) {
-            NSLog(@"%i",buttonIndex);
+            NSLog(@"%li",(long)buttonIndex);
         }];
     
     }

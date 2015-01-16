@@ -54,7 +54,7 @@
     }
     for (int i=0; i<[cell.gridViews count]; i++) {
         UIView *gridView = [cell.gridViews objectAtIndex:i];
-        int index = indexPath.row *[self.datasource numberOfGridsInRow]+i;
+        NSInteger index = indexPath.row *[self.datasource numberOfGridsInRow]+i;
         if (index >=[self.datasource numberOfGrids]) {
             gridView.hidden = YES;
         }else{

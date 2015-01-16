@@ -106,7 +106,7 @@
 }
 
 #pragma mark DTGridTableViewDelegate
-- (void)gridView:(UIView*)gridView gridViewForRowAtIndexPath:(int)index
+- (void)gridView:(UIView*)gridView gridViewForRowAtIndexPath:(NSInteger)index
 {
     ALAsset *asset = [self.itemsArray objectAtIndex:index];
     UIImageView *imageView = (UIImageView*)gridView;
@@ -130,19 +130,19 @@
         
         label = [[UILabel alloc] initWithFrame:CGRectMake(20, 150, self.view.frame.size.width -40, 20)];
         label.font = [UIFont systemFontOfSize:15.0f];
-        label.text = [NSString stringWithFormat:@"总数量 : %i",[group numberOfAssets]];
+        label.text = [NSString stringWithFormat:@"总数量 : %li",(long)[group numberOfAssets]];
         [self.view addSubview:label];
         
         [group setAssetsFilter:[ALAssetsFilter allPhotos]];
         label = [[UILabel alloc] initWithFrame:CGRectMake(20, 180, self.view.frame.size.width -40, 20)];
         label.font = [UIFont systemFontOfSize:15.0f];
-        label.text = [NSString stringWithFormat:@"图片数量 : %i",[group numberOfAssets]];
+        label.text = [NSString stringWithFormat:@"图片数量 : %li",(long)[group numberOfAssets]];
         [self.view addSubview:label];
         
         [group setAssetsFilter:[ALAssetsFilter allVideos]];
         label = [[UILabel alloc] initWithFrame:CGRectMake(20, 210, self.view.frame.size.width -40, 20)];
         label.font = [UIFont systemFontOfSize:15.0f];
-        label.text = [NSString stringWithFormat:@"视频数量 : %i",[group numberOfAssets]];
+        label.text = [NSString stringWithFormat:@"视频数量 : %li",(long)[group numberOfAssets]];
         [self.view addSubview:label];
         
         label = [[UILabel alloc] initWithFrame:CGRectMake(20, 240, self.view.frame.size.width -40, 20)];
@@ -177,19 +177,19 @@
             
             label = [[UILabel alloc] initWithFrame:CGRectMake(20, 150+290*i, self.view.frame.size.width -40, 20)];
             label.font = [UIFont systemFontOfSize:15.0f];
-            label.text = [NSString stringWithFormat:@"总数量 : %i",[group numberOfAssets]];
+            label.text = [NSString stringWithFormat:@"总数量 : %li",(long)[group numberOfAssets]];
             [scrollView addSubview:label];
             
             [group setAssetsFilter:[ALAssetsFilter allPhotos]];
             label = [[UILabel alloc] initWithFrame:CGRectMake(20, 180+290*i, self.view.frame.size.width -40, 20)];
             label.font = [UIFont systemFontOfSize:15.0f];
-            label.text = [NSString stringWithFormat:@"图片数量 : %i",[group numberOfAssets]];
+            label.text = [NSString stringWithFormat:@"图片数量 : %li",(long)[group numberOfAssets]];
             [scrollView addSubview:label];
             
             [group setAssetsFilter:[ALAssetsFilter allVideos]];
             label = [[UILabel alloc] initWithFrame:CGRectMake(20, 210+290*i, self.view.frame.size.width -40, 20)];
             label.font = [UIFont systemFontOfSize:15.0f];
-            label.text = [NSString stringWithFormat:@"视频数量 : %i",[group numberOfAssets]];
+            label.text = [NSString stringWithFormat:@"视频数量 : %li",(long)[group numberOfAssets]];
             [scrollView addSubview:label];
             
             label = [[UILabel alloc] initWithFrame:CGRectMake(20, 240+290*i, self.view.frame.size.width -40, 20)];

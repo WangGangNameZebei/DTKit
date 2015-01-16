@@ -17,7 +17,7 @@
  *
  *  @param index 点击的按钮
  */
--(void)callButtonAction:(int)index;
+-(void)callButtonAction:(NSInteger)index;
 
 @end
 
@@ -36,7 +36,7 @@
 /**
  *  当前的tab
  */
-@property(nonatomic,assign)int currentTab;
+@property(nonatomic,assign)NSInteger currentTab;
 
 /**
  *  TabBar的tab集合,类型是DTButton

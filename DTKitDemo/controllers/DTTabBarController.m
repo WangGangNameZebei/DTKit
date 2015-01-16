@@ -58,7 +58,7 @@
 }
 
 #pragma mark DTTabBarDelegate
--(void)callButtonAction:(int)index
+-(void)callButtonAction:(NSInteger)index
 {
     if (self.tabbar.currentTab==index) {
         return;

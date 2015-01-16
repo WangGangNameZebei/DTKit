@@ -46,7 +46,7 @@
 -(void)addData
 {
      NSMutableArray *itemsArray = [[NSMutableArray alloc] init];
-     int count = self.tableView.tableArray.count + itemsArray.count;
+     NSInteger count = self.tableView.tableArray.count + itemsArray.count;
      for (int i=0; i<15; i++) {
          if (count >=50) {
              [self.tableView addMoreArray:itemsArray];
@@ -73,7 +73,7 @@
     
     [self.tableView initWithCellIdentifier:IDENTIFIER configureCellBlock:^(UITableViewCell *cell, NSString *identifier, NSIndexPath *indexPath, id data) {
         cell.backgroundColor = data;
-        cell.textLabel.text = [NSString stringWithFormat:@"%i",indexPath.row];
+        cell.textLabel.text = [NSString stringWithFormat:@"%li",(long)indexPath.row];
     }];
     
     WEAKSELF

@@ -82,6 +82,31 @@ void systemTimerDisabled(BOOL enabled)
     [[UIApplication sharedApplication] setIdleTimerDisabled:enabled];
 }
 
+BOOL systemConnectedToNetwork()
+{
+    // Create zero addy
+    struct sockaddr_in zeroAddress;
+    bzero(&zeroAddress, sizeof(zeroAddress));
+    zeroAddress.sin_len = sizeof(zeroAddress);
+    zeroAddress.sin_family = AF_INET;
+    
+    // Recover reachability flags
+    SCNetworkReachabilityRef defaultRouteReachability = SCNetworkReachabilityCreateWithAddress(NULL, (struct sockaddr *)&zeroAddress);
+    SCNetworkReachabilityFlags flags;
+    
+    BOOL didRetrieveFlags = SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags);
+    CFRelease(defaultRouteReachability);
+    
+    if (!didRetrieveFlags)
+    {
+        return NO;
+    }
+    
+    BOOL isReachable = flags & kSCNetworkFlagsReachable;
+    BOOL needsConnection = flags & kSCNetworkFlagsConnectionRequired;
+    return (isReachable && !needsConnection) ? YES : NO;
+}
+
 NSString* systemFetchSSIDInfo()
 {
     NSArray *ifs = (__bridge_transfer id)CNCopySupportedInterfaces();
@@ -165,18 +190,37 @@ NSString* systemIPAddress()
     return address;
 }
 
-UIImage* systemTakeShot()
+UIImage* systemFuzzyPicture(UIView *view)
 {
-    //private api and device only 不支持模拟器哦
-    extern CGImageRef UIGetScreenImage();
-    UIImage *image = [UIImage imageWithCGImage:UIGetScreenImage()];
-    UIImageWriteToSavedPhotosAlbum(image,nil,nil,nil);
+    UIGraphicsBeginImageContext(view.frame.size);
+    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
+UIImage* systemHQPicture(UIView *view)
+{
+    // 下面方法，第一个参数表示区域大小。第二个参数表示是否是非透明的。如果需要显示半透明效果，需要传NO，否则传YES。第三个参数就是屏幕密度了
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, YES, [UIScreen mainScreen].scale);
+    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage*image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
+UIImage* systemTranslucenceHQPicture(UIView *view)
+{
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, NO, [UIScreen mainScreen].scale);
+    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage*image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     return image;
 }
 
 void systemStartVibrate()
 {
-     AudioServicesPlaySystemSound (kSystemSoundID_Vibrate);
+    AudioServicesPlaySystemSound (kSystemSoundID_Vibrate);
 }
 
 void systemRingingSound(int soundID)
@@ -236,7 +280,7 @@ double systemBatteryLevel()
     CFArrayRef sources = IOPSCopyPowerSourcesList(blob);
     CFDictionaryRef pSource = NULL;
     const void *psValue;
-    int numOfSources = CFArrayGetCount(sources);
+    long numOfSources = CFArrayGetCount(sources);
     if (numOfSources == 0) {
         NSLog(@"Error in CFArrayGetCount");
         return -1.0f;
@@ -286,8 +330,8 @@ BOOL systemJailBreak()
 {
     NSString *path = @"/User/Applications/";
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-//        NSArray *applist = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];
-//        NSLog(@"applist = %@", applist);
+        //        NSArray *applist = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];
+        //        NSLog(@"applist = %@", applist);
         return YES;
     }
     return NO;
@@ -363,6 +407,22 @@ NSString* systemBuild()
 {
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     return  [infoDictionary objectForKey:@"CFBundleVersion"];
+}
+
+NSString* systemDeviceSize()
+{
+    int width = [UIScreen mainScreen].bounds.size.width;
+    int height = [UIScreen mainScreen].bounds.size.height;
+    if (width == 320 && height == 480) {
+        return @"3.5";
+    }else if (width == 320 && height == 568){
+        return @"4.0";
+    }else if (width == 375 && height == 667){
+        return @"4.7";
+    }else if (width == 414 && height == 736){
+        return @"5.5";
+    }
+    return nil;
 }
 
 NSString* systemCheckCurrentDeviceInformation()
@@ -450,4 +510,54 @@ NSString* systemDeviceLanguage()
 NSString* systemDeviceCountry()
 {
     return [[NSLocale currentLocale] localeIdentifier];
+}
+
+float systemX(UIView *view)
+{
+    return view.frame.origin.x;
+}
+
+float systemY(UIView *view)
+{
+    return view.frame.origin.y;
+}
+
+int systemWidth(UIView *view)
+{
+    return view.frame.size.width;
+}
+
+int systemHeight(UIView *view)
+{
+    return view.frame.size.height;
+}
+
+int systemScreenWidth()
+{
+    return [UIScreen mainScreen].bounds.size.width;
+}
+
+int systemScreenHeight()
+{
+    return [UIScreen mainScreen].bounds.size.height;
+}
+
+float systemRight(UIView *view)
+{
+    return systemX(view)+systemWidth(view);
+}
+
+float systemBottom(UIView *view)
+{
+    return systemY(view)+systemHeight(view);
+}
+
+UIColor* systemRGBCOLOR(int r, int g, int b)
+{
+    return [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1];
+}
+
+UIColor* systemRGBACOLOR(int r, int g, int b, float a)
+{
+    return [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:a];
 }

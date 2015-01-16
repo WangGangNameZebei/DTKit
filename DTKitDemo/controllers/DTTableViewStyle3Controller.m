@@ -71,11 +71,11 @@
     }];
     
     [self.tableView titleForHeaderWithBolock:^NSString *(NSInteger section) {
-        return [NSString stringWithFormat:@"Header:%i",section];
+        return [NSString stringWithFormat:@"Header:%li",(long)section];
     }];
     
     [self.tableView titleForFooterWithBolock:^NSString *(NSInteger section) {
-        return [NSString stringWithFormat:@"Footer:%i",section];
+        return [NSString stringWithFormat:@"Footer:%li",(long)section];
     }];
 }
 
