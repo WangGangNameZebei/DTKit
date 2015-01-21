@@ -69,4 +69,15 @@
  */
 - (UIImage*)imageWithProportion:(CGSize)ProportionSize percent:(CGFloat)percent;
 
+/*!
+ *
+ *  创建纯色图片
+ *
+ *  @param color 颜色
+ *  @param size  大小
+ *
+ *  @return UIImage
+ */
+- (UIImage *)imageWithColor:(UIColor *)color andSize:(CGSize)size;
+
 @end

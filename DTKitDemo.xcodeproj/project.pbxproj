@@ -98,6 +98,7 @@
 		61739B6C1A271DE7007F973C /* friendscircle_others_dialogbox_pic3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61739B691A271DE7007F973C /* friendscircle_others_dialogbox_pic3@2x.png */; };
 		61739B6D1A271DE7007F973C /* friendscircle_others_smallhead_20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61739B6A1A271DE7007F973C /* friendscircle_others_smallhead_20@2x.png */; };
 		61739B6E1A271DE7007F973C /* pengyouquan_detail_pic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61739B6B1A271DE7007F973C /* pengyouquan_detail_pic@2x.png */; };
+		617539EA1A6F36A000692456 /* DTNetworkRequestUtilController.m in Sources */ = {isa = PBXBuildFile; fileRef = 617539E91A6F36A000692456 /* DTNetworkRequestUtilController.m */; };
 		618659FB1A256D1D0036F61C /* DTTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 618659FA1A256D1D0036F61C /* DTTableViewController.m */; };
 		61865A021A257BBF0036F61C /* DTTableViewControllerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61865A011A257BBF0036F61C /* DTTableViewControllerCell.m */; };
 		61865A051A2580040036F61C /* DTTableViewStyle1Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 61865A041A2580040036F61C /* DTTableViewStyle1Controller.m */; };
@@ -107,6 +108,7 @@
 		61865A111A25AC5D0036F61C /* DTTableViewStyle3Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 61865A101A25AC5D0036F61C /* DTTableViewStyle3Controller.m */; };
 		61865A1A1A25CA030036F61C /* DTTableViewStyle4Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 61865A191A25CA030036F61C /* DTTableViewStyle4Controller.m */; };
 		61865A1E1A25D6F60036F61C /* DTAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61865A1D1A25D6F60036F61C /* DTAlertView.m */; };
+		619088AA1A68EB0500E24BE3 /* DTBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 619088A91A68EB0500E24BE3 /* DTBaseModel.m */; };
 		61BDD22F1A23305A00C15AE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BDD22E1A23305A00C15AE3 /* main.m */; };
 		61BDD2321A23305A00C15AE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BDD2311A23305A00C15AE3 /* AppDelegate.m */; };
 		61BDD2351A23305A00C15AE3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BDD2341A23305A00C15AE3 /* ViewController.m */; };
@@ -299,6 +301,8 @@
 		61739B691A271DE7007F973C /* friendscircle_others_dialogbox_pic3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friendscircle_others_dialogbox_pic3@2x.png"; sourceTree = "<group>"; };
 		61739B6A1A271DE7007F973C /* friendscircle_others_smallhead_20@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friendscircle_others_smallhead_20@2x.png"; sourceTree = "<group>"; };
 		61739B6B1A271DE7007F973C /* pengyouquan_detail_pic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pengyouquan_detail_pic@2x.png"; sourceTree = "<group>"; };
+		617539E81A6F36A000692456 /* DTNetworkRequestUtilController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTNetworkRequestUtilController.h; sourceTree = "<group>"; };
+		617539E91A6F36A000692456 /* DTNetworkRequestUtilController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTNetworkRequestUtilController.m; sourceTree = "<group>"; };
 		618659F91A256D1D0036F61C /* DTTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTTableViewController.h; sourceTree = "<group>"; };
 		618659FA1A256D1D0036F61C /* DTTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTTableViewController.m; sourceTree = "<group>"; };
 		61865A001A257BBF0036F61C /* DTTableViewControllerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTTableViewControllerCell.h; sourceTree = "<group>"; };
@@ -317,6 +321,8 @@
 		61865A191A25CA030036F61C /* DTTableViewStyle4Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTTableViewStyle4Controller.m; sourceTree = "<group>"; };
 		61865A1C1A25D6F60036F61C /* DTAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTAlertView.h; sourceTree = "<group>"; };
 		61865A1D1A25D6F60036F61C /* DTAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTAlertView.m; sourceTree = "<group>"; };
+		619088A81A68EB0500E24BE3 /* DTBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTBaseModel.h; sourceTree = "<group>"; };
+		619088A91A68EB0500E24BE3 /* DTBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTBaseModel.m; sourceTree = "<group>"; };
 		61BDD2291A23305A00C15AE3 /* DTKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DTKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BDD22D1A23305A00C15AE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61BDD22E1A23305A00C15AE3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -632,6 +638,8 @@
 				6165DC691A393AED00042703 /* DTPrivateToolInstalledAppsController.m */,
 				6165DC6B1A396E8800042703 /* DTInstalledAppsDetailController.h */,
 				6165DC6C1A396E8800042703 /* DTInstalledAppsDetailController.m */,
+				617539E81A6F36A000692456 /* DTNetworkRequestUtilController.h */,
+				617539E91A6F36A000692456 /* DTNetworkRequestUtilController.m */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -749,6 +757,15 @@
 			path = DTAlertView;
 			sourceTree = "<group>";
 		};
+		619088A71A68EB0500E24BE3 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				619088A81A68EB0500E24BE3 /* DTBaseModel.h */,
+				619088A91A68EB0500E24BE3 /* DTBaseModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		61BDD2201A23305A00C15AE3 = {
 			isa = PBXGroup;
 			children = (
@@ -822,6 +839,7 @@
 				61655C9F1A245D1200660E48 /* third */,
 				61655C7B1A2424FF00660E48 /* view */,
 				61655C701A2424FF00660E48 /* category */,
+				619088A71A68EB0500E24BE3 /* model */,
 				61655C741A2424FF00660E48 /* util */,
 			);
 			path = DTKit;
@@ -969,6 +987,7 @@
 				614CF9451A2BF19500B96F45 /* SDWebImageDecoder.m in Sources */,
 				6142C4131A2874B4003693B3 /* AFSecurityPolicy.m in Sources */,
 				614CF9491A2BF19500B96F45 /* SDWebImagePrefetcher.m in Sources */,
+				619088AA1A68EB0500E24BE3 /* DTBaseModel.m in Sources */,
 				6132B73B1A2F097000C0C6D3 /* DTSystemCommon.m in Sources */,
 				6132B7301A2EEB0200C0C6D3 /* DTAlbumDetailsController.m in Sources */,
 				61655C9A1A2451E900660E48 /* DTCycleScrollViewController.m in Sources */,
@@ -1040,6 +1059,7 @@
 				61BDD22F1A23305A00C15AE3 /* main.m in Sources */,
 				61713F001A383BF50030327D /* DTAddressBookDetailController.m in Sources */,
 				6142C3F61A2848CB003693B3 /* DTLabel.m in Sources */,
+				617539EA1A6F36A000692456 /* DTNetworkRequestUtilController.m in Sources */,
 				61865A1E1A25D6F60036F61C /* DTAlertView.m in Sources */,
 				614CF9441A2BF19500B96F45 /* SDWebImageCompat.m in Sources */,
 				61655C901A2424FF00660E48 /* DTGridTableViewCell.m in Sources */,
@@ -1165,6 +1185,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = DTKitDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -1179,6 +1200,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = DTKitDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (

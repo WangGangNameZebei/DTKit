@@ -35,7 +35,7 @@
     return self;
 }
 
--(void)createLocalCacheDir
+-(void)createSharedCache
 {
     NSArray *paths=NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask,YES);
     NSString *path=[paths objectAtIndex:0];
@@ -50,7 +50,7 @@
     _cachesDirPath = imageDir;
 }
 
--(void)deleteLocalCacheDir
+-(void)deleteSharedCache
 {
     NSArray *paths=NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask,YES);
     NSString *path=[paths objectAtIndex:0];
@@ -67,7 +67,8 @@
         NSString *filePath = [self.cachesDirPath stringByAppendingPathComponent:fileName];
         NSDictionary *attrs = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
         unsigned long long length = [attrs fileSize];
-        totalSize += length / 1024.0;
+//        totalSize += length / 1024.0;
+        totalSize += length / 1000.0;
     }
     
     return totalSize;
@@ -88,7 +89,13 @@
 
 -(NSDictionary*)readLocalCache:(NSString*)path
 {
-    return [NSDictionary dictionaryWithContentsOfFile:path];
+    NSString *diskCachePath = [_cachesDirPath stringByAppendingPathComponent:path];
+    return [NSDictionary dictionaryWithContentsOfFile:diskCachePath];
+}
+
+-(NSString*)getLocalCachePath:(NSString*)path
+{
+    return [_cachesDirPath stringByAppendingPathComponent:path];
 }
 
 @end

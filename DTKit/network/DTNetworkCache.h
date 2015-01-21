@@ -38,16 +38,16 @@
 /**
  *  @Author DT, 14-11-14 14:11:17
  *
- *  @brief 创建缓存文件夹
+ *  @brief 创建缓存
  */
--(void)createLocalCacheDir;
+-(void)createSharedCache;
 
 /**
  *  @Author DT, 14-11-14 14:11:02
  *
- *  @brief 删除缓存文件夹(清理缓存)
+ *  @brief 删除缓存
  */
--(void)deleteLocalCacheDir;
+-(void)deleteSharedCache;
 
 /**
  *  @Author DT, 14-11-14 15:11:08
@@ -80,5 +80,16 @@
  *  @return 缓存文件内容
  */
 -(NSDictionary*)readLocalCache:(NSString*)path;
+
+/*!
+ *  @Author DT
+ *
+ *  @brief  获取本地缓存地址
+ *
+ *  @param path 缓存文件路径(文件名)
+ *
+ *  @return 缓存文件内容
+ */
+-(NSString*)getLocalCachePath:(NSString*)path;
 
 @end

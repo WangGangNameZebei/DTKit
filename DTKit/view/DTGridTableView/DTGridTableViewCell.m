@@ -11,8 +11,8 @@
 
 @interface DTGridTableViewCell()
 {
-    int _number;
-    int _height;
+    NSInteger _number;
+    NSInteger _height;
 }
 @end
 

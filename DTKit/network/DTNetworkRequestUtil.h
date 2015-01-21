@@ -18,7 +18,29 @@ typedef void (^requestFailure) (DTNetworkResultResponse* response);
 typedef enum {
     POST,
     GET,
-}method;
+}method;//请求方法
+
+/*!
+ 网络缓存类型
+ @constant CachePolicyNormal
+ 基本请求,有网络的话请求网络数据,没有网络的话请求缓存数据
+ @constant CachePolicyOnlyCache
+ 只取本地的数据,如果本地缓存数据为空也不访问网络
+ @constant CachePolicyCacheElseWeb
+ 查看本地是否有缓存,如果有就使用,没有的话就请求网络数据
+ @constant CachePolicyCacheAndRefresh
+ 如果本地有数据,网络获取不回调,如果本地没有数据,网络获取会回调
+ @constant CachePolicyCacheAndWeb
+ 本地获取一次，网络获取一次，都会回调。
+ 注意：这种情况非常少见，只有调用网页的时候可能会用得到。
+ */
+typedef enum {
+    CachePolicyNormal,
+    CachePolicyOnlyCache,
+    CachePolicyCacheElseWeb,
+    CachePolicyCacheAndRefresh,
+    CachePolicyCacheAndWeb
+}CachePolicy;
 
 /**
  *  网络请求类
@@ -27,8 +49,10 @@ typedef enum {
 /** 网络操作集合 */
 @property (nonatomic,strong) NSMutableDictionary *operations;
 
-/** 超时时间间隔，以秒为单位创建的请求。默认的超时时间间隔为60秒。 */
+/** 超时时间间隔，以秒为单位创建的请求。默认的超时时间间隔为30秒。 */
 @property (nonatomic, assign) NSTimeInterval timeoutInterval;
+/** 网络缓存类型,如需使用缓存功能得先调用[[DTNetworkCache shareInstance] createSharedCache]方法,默认类型为CachePolicyNormal */
+@property (nonatomic, assign) CachePolicy cachePolicy;
 
 /**
  *  初始化方法

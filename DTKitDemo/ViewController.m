@@ -11,6 +11,8 @@
 #import "DTAddressBookTool.h"
 #import "DTAddressBookModel.h"
 #import "DTPrivateTool.h"
+#import "DTNetworkRequestUtil.h"
+#import "DTNetworkCache.h"
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -39,10 +41,20 @@
                        [NSArray arrayWithObjects:@"DTButton",@"自定义Button,支持点击切换默认和高亮图标",@"DTButtonController",nil],
                        [NSArray arrayWithObjects:@"DTLabel",@"封装UILabel,支持点击事件,支持高亮颜色,支持下划线,支持删除线",@"DTLabelController",nil],
                        [NSArray arrayWithObjects:@"DTClickImageView",@"封装UIImageView,支持block形式的点击事件,支持点击高亮显示",@"DTImageViewController",nil],
-                       [NSArray arrayWithObjects:@"DTUserDefaults",@"封装NSUserDefaults,写法更加快速简便",@"DTUserDefaultsController",nil],nil];
+                       [NSArray arrayWithObjects:@"DTUserDefaults",@"封装NSUserDefaults,写法更加快速简便",@"DTUserDefaultsController",nil],
+                       [NSArray arrayWithObjects:@"DTNetworkRequestUtil",@"封装AFNetwrking网络框架,写法更加快速简便,增加把本地缓存功能",@"DTNetworkRequestUtilController",nil],nil];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
+    [[DTNetworkCache shareInstance] createSharedCache];
+    NSDictionary *dictionary = @{@"isApp":@"1",@"number":@"2",@"uid":@"0"};
+    [DTNetworkRequestUtil shareInstance].cachePolicy = CachePolicyCacheElseWeb;
+    [[DTNetworkRequestUtil shareInstance] requestWithPath:@"http://www.drinknlink.com/dailyRecommend/getRecommendForApp" parameters:dictionary success:^(DTNetworkResultResponse *response) {
+        
+    } failure:^(DTNetworkResultResponse *response) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
